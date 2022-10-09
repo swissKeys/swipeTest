@@ -117,6 +117,7 @@ function Simple() {
             key={character.name}
             onSwipe={(dir) => swiped(dir, character.name)}
             onCardLeftScreen={() => outOfFrame(character.name)}
+            preventSwipe={["up", "down"]}
           >
             <Card>
               <CardImage
