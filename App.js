@@ -5,7 +5,6 @@ import Simple from "./components/simple";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>⬅ or ➡️</Text>
       <StatusBar style="auto" />
       <Simple />
     </View>

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TinderCard from "react-tinder-card";
-import { Text } from "react-native";
+import butt from "./../assets/IMG_0538.png";
+import oral from "./../assets/IMG_0541.png";
+import vulva from "./../assets/IMG_0543.png";
+import penis from "./../assets/IMG_0545.png";
 
 const Container = styled.View`
   display: flex;
@@ -24,7 +27,7 @@ const CardContainer = styled.View`
 
 const Card = styled.View`
   position: absolute;
-  background-color: #fff;
+  background-color: white;
   width: 100%;
   max-width: 260px;
   height: 300px;
@@ -35,10 +38,11 @@ const Card = styled.View`
   resize-mode: cover;
 `;
 
-const CardImage = styled.ImageBackground`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+const CardImage = styled.Image`
+  width: 60%;
+  height: 60%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 20px;
 `;
 
@@ -47,6 +51,11 @@ const CardTitle = styled.Text`
   bottom: 0;
   margin: 10px;
   color: black;
+`;
+
+const ExText = styled.Text`
+  margin-top: 20px;
+  padding: 5px;
 `;
 
 const InfoText = styled.Text`
@@ -58,40 +67,40 @@ const InfoText = styled.Text`
 
 const db = [
   {
-    name: "Kink 1",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    name: "Genderplay",
+    img: butt,
   },
   {
-    name: "Kink 2",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    name: "Bathing together",
+    img: vulva,
   },
   {
-    name: "Kink 3",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    name: "Slow sex",
+    img: oral,
   },
   {
-    name: "Kink 4",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    name: "Massaging inner thighs ",
+    img: penis,
   },
   {
-    name: "Kink 5",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    name: "Homemade porn",
+    img: oral,
   },
   {
     name: "Kink 7",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    img: butt,
   },
   {
     name: "Kink 8",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    img: vulva,
   },
   {
     name: "Kink 9",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    img: oral,
   },
   {
     name: "Kink 10",
-    img: "https://www.schulz-grafik.de/wp-content/uploads/2018/03/placeholder.png",
+    img: butt,
   },
 ];
 
@@ -118,24 +127,21 @@ function Simple() {
             onSwipe={(dir) => swiped(dir, character.name)}
             onCardLeftScreen={() => outOfFrame(character.name)}
             preventSwipe={["up", "down"]}
+            swipeRequirementType={"position"}
+            swipeThreshold={80}
           >
             <Card>
-              <CardImage
-                source={{
-                  uri: "https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg",
-                }}
-              >
-                <CardTitle>{character.name}</CardTitle>
-              </CardImage>
+              <CardTitle>{character.name}</CardTitle>
+
+              <CardImage source={character.img}></CardImage>
+              <ExText>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque...
+              </ExText>
             </Card>
           </TinderCard>
         ))}
       </CardContainer>
-      {lastDirection ? (
-        <InfoText>You swiped {lastDirection}</InfoText>
-      ) : (
-        <InfoText />
-      )}
     </Container>
   );
 }
